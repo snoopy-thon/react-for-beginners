@@ -8,10 +8,12 @@
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <!-- react JS는 interactive한 UI를 만들 수 있게 해줌 -->
   <!-- react-dom은 react element를 HTML에 두는 역할을 함 -->
-  
+
   <script>
     const root = document.getElementById("root");
-    const h3 = React.createElement("h3", {
+    const h3 = React.createElement("h3", 
+    {
+      id: "title",
       onMouseEnter: () => console.log('mouse enter'),
     }, "Hello I'm a span"); // 변수명은 마음대로 설정해도 되지만 괄호안에 있는 span은 html태그와 같아야 한다.
     const btn = React.createElement("button", {
@@ -26,3 +28,4 @@
 </html>
 <!-- Vanilla Js에서는 (HTML -> Javascript -> HTML) -->
 <!-- React Js에서는 (Javascript -> HTML) -->
+<!-- 실제로 createElement를 쓰는 개발자 거의 없음 더 쉬운 방식이 있음 -->
