@@ -12,30 +12,21 @@
 
   <script type="text/babel">
     const root = document.getElementById("root");
-    function Title() {
-      return (
-        <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
-          Hello I'm a title
-        </h3>
-       );
-      } // JSX 
-    const Button = () => ( // 중요! 컴포넌트의 첫글자는 무조건 대문자여야 함. (안그러면 HTML 태그와 헷갈리기 때문)
-      <button 
-        style={{
-          backgroundColor: "tomato",
-        }}
-        onClick={() => console.log("im clicked")}
-      >
-        Click me
-      </button>
-    );
+    let counter = 0;
+    function countUp(){
+      counter = counter + 1;
+      render();
+    }
+    function render(){
+      ReactDOM.render(<Container />, root);//render : 사용자에게 보여준다
+    }
     const Container = () => ( // 컴포넌트를 다른 컴포넌트안에 넣는 법
       <div>
-        <Title />
-        <Button />
+        <h3>Total clicks: {counter}</h3> 
+        <button onClick={countUp}>Click me</button>
       </div>
     );
-    ReactDOM.render(<Container />, root) //render : 사용자에게 보여준다
+    render(); 
   </script>
 </html>
 <!-- Vanilla Js에서는 (HTML -> Javascript -> HTML) -->
@@ -43,3 +34,4 @@
 <!-- 실제로 createElement를 쓰는 개발자 거의 없음 더 쉬운 방식이 있음 -->
 <!-- JSX를 쓰면 코드를 알아보기 더 쉬움 -->
 <!-- Babel을 사용하여 JSX를 ReactJs로 변환 -->
+<!-- state는 데이터 저장 공간 -->
