@@ -12,10 +12,14 @@
 
   <script type="text/babel">
     const root = document.getElementById("root");
-    const Title = (
-      <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>Hello I'm a title</h3>
-    ); // JSX 
-    const Button = 
+    function Title() {
+      return (
+        <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+          Hello I'm a title
+        </h3>
+       );
+      } // JSX 
+    const Button = () => ( // 중요! 컴포넌트의 첫글자는 무조건 대문자여야 함. (안그러면 HTML 태그와 헷갈리기 때문)
       <button 
         style={{
           backgroundColor: "tomato",
@@ -23,9 +27,15 @@
         onClick={() => console.log("im clicked")}
       >
         Click me
-    </button>
-    const container = React.createElement("div", null, [Title, Button]);
-    ReactDOM.render(container, root) //render : 사용자에게 보여준다
+      </button>
+    );
+    const Container = () => ( // 컴포넌트를 다른 컴포넌트안에 넣는 법
+      <div>
+        <Title />
+        <Button />
+      </div>
+    );
+    ReactDOM.render(<Container />, root) //render : 사용자에게 보여준다
   </script>
 </html>
 <!-- Vanilla Js에서는 (HTML -> Javascript -> HTML) -->
