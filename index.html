@@ -15,6 +15,9 @@
     }, "Hello I'm a span"); // 변수명은 마음대로 설정해도 되지만 괄호안에 있는 span은 html태그와 같아야 한다.
     const btn = React.createElement("button", {
       onClick: () => console.log('im clicked'),
+      style: {
+        backgroundColor:"tomato",
+      }
     }, "Click me");
     const container = React.createElement("div", null, [h3, btn]);
     ReactDOM.render(container, root) //render : 사용자에게 보여준다
