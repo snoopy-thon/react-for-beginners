@@ -12,21 +12,16 @@
 
   <script type="text/babel">
     const root = document.getElementById("root");
-    let counter = 0;
-    function countUp(){
-      counter = counter + 1;
-      render();
+    function App() { // 컴포넌트를 다른 컴포넌트안에 넣는 법
+      const [counter, modifier] = React.useState();
+      return(
+        <div>
+          <h3>Total clicks: {counter}</h3>
+          <button>Click me</button>
+        </div>
+      );
     }
-    function render(){
-      ReactDOM.render(<Container />, root);//render : 사용자에게 보여준다
-    }
-    const Container = () => ( // 컴포넌트를 다른 컴포넌트안에 넣는 법
-      <div>
-        <h3>Total clicks: {counter}</h3> 
-        <button onClick={countUp}>Click me</button>
-      </div>
-    );
-    render(); 
+    ReactDOM.render(<App />, root);//render : 사용자에게 보여준다 
   </script>
 </html>
 <!-- Vanilla Js에서는 (HTML -> Javascript -> HTML) -->
