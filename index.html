@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
   <body>
-    
+    <div id="root"></div>
   </body>
   <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js
-  "></script>
+  "></script> 
+  <!-- react JS는 interactive한 UI를 만들 수 있게 해줌 -->
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <!-- react-dom은 react element를 HTML에 두는 역할을 함 -->
   <script>
-    
+    const root = document.getElementById("root");
+    const span = React.createElement("span", {id:"sexy-span", style: {color: "red"}}, "Hello I'm a span"); // 변수명은 마음대로 설정해도 되지만 괄호안에 있는 span은 html태그와 같아야 한다.
+    ReactDOM.render(span, root) //render : 사용자에게 보여준다
   </script>
 </html>
+<!-- Vanilla Js에서는 (HTML -> Javascript -> HTML) -->
+<!-- React Js에서는 (Javascript -> HTML) -->
