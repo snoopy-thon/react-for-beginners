@@ -13,11 +13,14 @@
   <script type="text/babel">
     const root = document.getElementById("root");
     function App() { // 컴포넌트를 다른 컴포넌트안에 넣는 법
-      const [counter, modifier] = React.useState();
+      const [counter, setCounter] = React.useState(0);
+      const onClick = () => {
+        setCounter(counter + 1); //  reRendering해줌
+      };
       return(
         <div>
           <h3>Total clicks: {counter}</h3>
-          <button>Click me</button>
+          <button onClick={onClick}>Click me</button>
         </div>
       );
     }
