@@ -13,15 +13,24 @@
   <script type="text/babel">
     const root = document.getElementById("root");
     function App() { // 컴포넌트를 다른 컴포넌트안에 넣는 법
-      const [counter, setCounter] = React.useState(0);
-      const onClick = () => {
-        // setCounter(counter + 1); //  새로운 값을 가지고 전체 컴포넌트가 재생성 된다.(reRendering 해줌)
-        setCounter((current) => current + 1); // state 값을 변경하는 더 안전한 방법
+      const [minutes, setMinutes] = React.useState("");
+      const onChange = (event) => {
+        setMinutes(event.target.value);
       };
       return(
         <div>
-          <h3>Total clicks: {counter}</h3>
-          <button onClick={onClick}>Click me</button>
+          <h1>Super Converter</h1>
+          <label htmlfor="minutes">Minutes</label>
+          <input 
+            value={minutes}
+            id="minutes" 
+            placeholder="Minutes" 
+            type="number" 
+            onChange={onChange}
+          />
+          <h4>You want to Convert {minutes}</h4>
+          <label htmlfor="hours">Hours</label>
+          <input id="hours" placeholder="Hours" type="number" />
         </div>
       );
     }
@@ -34,3 +43,5 @@
 <!-- JSX를 쓰면 코드를 알아보기 더 쉬움 -->
 <!-- Babel을 사용하여 JSX를 ReactJs로 변환 -->
 <!-- state는 데이터 저장 공간 -->
+
+<!-- JSX와 Javascript의 다른점: class나 for같은 예약어 사용못함. 대신 htmlfor 사용 -->
